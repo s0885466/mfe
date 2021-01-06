@@ -3,7 +3,8 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const commonConfig = require('./webpack.common');
 const packageJson = require('../package');
 
-const domain = process.env.PRODUCTION_DOMAIN;
+//const domain = process.env.PRODUCTION_DOMAIN;
+const domain = 'https://d1rc2itkitoo8w.cloudfront.net';
 
 const prodConfig = {
   mode: 'production',
@@ -15,11 +16,11 @@ const prodConfig = {
     new ModuleFederationPlugin({
       name: 'container',
       remotes: {
-        marketing: `marketing@${domain}/marketing/remoteEntry.js`
+        marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
       },
-      shared: packageJson.dependencies
-    })
-  ]
+      shared: packageJson.dependencies,
+    }),
+  ],
 };
 
 module.exports = merge(commonConfig, prodConfig);
