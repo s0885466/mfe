@@ -7,14 +7,14 @@ import Landing from "./components/Landing";
 const App = () => {
   return (
     <div>
-<StylesProvider>
-  <BrowserRouter>
-    <Switch>
-      <Route exact path="/pricing" component={Pricing}/>
-      <Route path="/" component={Landing}/>
-    </Switch>
-  </BrowserRouter>
-</StylesProvider>
+      <StylesProvider>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Landing}/>
+            <Route exact path="/pricing" component={Pricing}/>
+          </Switch>
+        </BrowserRouter>
+      </StylesProvider>
     </div>
   );
 };

@@ -6,20 +6,20 @@ const packageJson = require('../package');
 const devConfig = {
   mode: 'development',
   devServer: {
-    port: 8080,
+    port: 8085,
     historyApiFallback: {
       index: 'index.html'
     }
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'container',
-      remotes: {
-        marketing: 'marketing@http://localhost:8081/remoteEntry.js',
-        beers: 'beers@http://localhost:8085/remoteEntry.js'
+      name: 'beers',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './BeersApp' : './src/bootstrap'
       },
       shared: packageJson.dependencies
-    }),
+    })
   ]
 };
 

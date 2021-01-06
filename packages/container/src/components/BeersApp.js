@@ -1,4 +1,4 @@
-import {mount} from 'marketing/MarketingApp';
+import {mount} from 'beers/BeersApp';
 import React, {useRef, useEffect} from "react";
 
 export default () => {
