@@ -1,15 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import styled from 'styled-components';
+import {Cart, Container, Img, Title} from './BeerList.styles';
 
 const url = 'https://api.punkapi.com/v2/beers';
 
 const BeerList = () => {
-
-  const Wrapper = styled.section`
-  padding: 4em;
-  background: papayawhip;
-`;
-
 
   const [beers, setBeers] = useState(null);
 
@@ -17,19 +11,20 @@ const BeerList = () => {
     fetch(url)
       .then(res => res.json())
       .then(beers => {
+        console.log(beers);
         setBeers(beers);
       })
   }, []);
 
   return (
-    <div>
-      <h1>Beers</h1>
+    <Container>
       {beers && beers.map(beer => (
-        <Wrapper key={beer.id}>
-          {beer.name}
-        </Wrapper>
+        <Cart key={beer.id}>
+          <Title>{beer.name}</Title>
+          <Img image={beer.image_url} loading="lazy"/>
+        </Cart>
       ))}
-    </div>
+    </Container>
   );
 };
 

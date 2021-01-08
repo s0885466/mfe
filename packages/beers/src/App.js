@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route, Router, Link} from "react-router-dom";
+import {Switch, Route, Router, } from "react-router-dom";
 import BeerList from "./components/BeerList";
 import styled from 'styled-components';
 
