@@ -13,6 +13,8 @@ const HomeBeers = () => (
 
 const App = ({history}) => {
 
+  const pathname = '/beers';
+
   const Title = styled.h1`
   font-size: 1.5em;
   text-align: center;
@@ -23,20 +25,20 @@ const App = ({history}) => {
     <div>
       <Normalize/>
       <Title>Hello Beers</Title>
-      
+
       <Router history={history}>
         <ul>
           <li>
-            <Link to={"/beers/"}>На главную пив</Link>
+            <Link to={pathname}>На главную пив</Link>
           </li>
           <li>
-            <Link to={"/beers/list"}>К списку пив</Link>
+            <Link to={`${pathname}/list`}>К списку пив</Link>
           </li>
         </ul>
 
         <Switch>
-          <Route exact path="/beers/" component={HomeBeers}/>
-          <Route path="/beers/list" component={BeerList}/>
+          <Route exact path={pathname} component={HomeBeers}/>
+          <Route path={`${pathname}/list`} component={BeerList}/>
         </Switch>
       </Router>
     </div>
