@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-column-gap: 20px;
+  grid-column-gap: 10px;
   grid-row-gap: 10px;
  
   @media screen and (min-width: 768px) {
@@ -13,17 +12,21 @@ export const Container = styled.div`
 
 `;
 
-export const Cart = styled.section`
-text-align: center;
+export const CartWrapper = styled.section`
   background: #f8f8f8;
+`;
+
+export const Cart = styled.section`
+  text-align: center;
   border-radius: 4px;
   width: 100%;
-  padding: 5px;
+  padding: 10px;
  
 `;
 
 export const Title = styled.h2`
   font-size: 16px;
+  display: inline-block;
 `;
 
 export const Img = styled.a`

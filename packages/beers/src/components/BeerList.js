@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Cart, Container, Img, Title} from './BeerList.styles';
+import {Cart, Container, Img, Title, CartWrapper} from './BeerList.styles';
 
 const url = 'https://api.punkapi.com/v2/beers';
 
@@ -19,10 +19,13 @@ const BeerList = () => {
   return (
     <Container>
       {beers && beers.map(beer => (
-        <Cart key={beer.id}>
+        <CartWrapper key={beer.id}>
+          <Cart>
+            <h1>hello</h1>
           <Title>{beer.name}</Title>
           <Img image={beer.image_url} loading="lazy"/>
-        </Cart>
+          </Cart>
+        </CartWrapper>
       ))}
     </Container>
   );
