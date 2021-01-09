@@ -1,6 +1,6 @@
-import React from "react";
-import MarketingApp from "./components/MarketingApp";
-import BeersApp from "./components/BeersApp";
+import React, {lazy, Suspense} from "react";
+const MarketingLazy = lazy(() => import("./components/MarketingApp"));
+const BeersLazy = lazy(() => import("./components/BeersApp"));
 
 import {Switch, Route, BrowserRouter, Link} from "react-router-dom";
 
@@ -19,10 +19,12 @@ export default () => {
         </li>
       </ul>
       <hr/>
+      <Suspense fallback={<div>Loading...</div>}>
       <Switch>
-        <Route path="/beers" component={BeersApp}/>
-        <Route exact path="/marketing" component={MarketingApp}/>
+        <Route path="/beers" component={BeersLazy}/>
+        <Route exact path="/marketing" component={MarketingLazy}/>
       </Switch>
+      </Suspense>
     </BrowserRouter>
   </>
 };
